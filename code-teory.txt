@@ -1,0 +1,106 @@
+[web server]
+E' un software che serve per far girare i nostri file.
+Consigliabile installare tali programmi su Linux e.g. CentOS.
+- Apache (tra i più utilizzati)
+- Ngnix
+- Tomcat
+
+[DNS]
+Nome che si collega all'inidirizzo ip;
+google.com = 216.58.205.78;
+google.com  = dominio web di II levello; 
+.com, .it, .net, .org, ecc. = domini di I livello / tld = Top Level Domain;
+I tld possono essere registrati solo da determinati provider e.g -> nic.it;
+I domini di II levello come e.g. -> google.com, nomesito.it possono essere registrati da diversi provider, e.g. -> ovh.com, aruba.it;
+Ci sono i domini di terzo livello o sottodomini -> nome.nomesito.tld -> e.g. mail.google.com o www.google.com;
+I sottodomini o domini di III livello sono dei DNS: che è un protocollo organizzato in maniera gerarchica con funzione di database;
+Il DNS serve per facilitare l'utente a memorizzare il nome del server [indirizzo ip], quindi il DNS dovra recuperare l'indirizzo corrispondente dal suo database;
+[creare DNS]
+.it = può essere solo registrato dai residenti con la cittadinanza italiana.
+Sara richiesto il codice fiscale > 18 anni.
+.eu = anche < 18 anni pur che nati nei paesi europei / precisazione europa -> non solo unione europea. 
+___
+.com = commerciale,
+.net = network,
+.org = organizzazione,
+.biz = business;
+Chiunque può registrarsi.
+
+[server PROXY]
+E' un server che si frappone in mezzo tra il server effettivo e il client, è una macchina fisica.
+SERVER <-> PROXY <-> UTENTE FINALE;
+Funzione principale -> limitare il traffico al server finale, filtra il traffico.
+E.g. 10 utenti chiedono la paggina "500" al server finale, il server proxy, chiedera la pagina una sola volta al server finale e la darà ai 10 utenti.
+Il server proxy salva la pagina cercata in memoria, e come una cache, per poi darla all'utente che la chiede.
+Questo procedimento si chiama Web Caching:
+Ovvero le richieste più frequenti sono salvate in memoria del proxy, quindi se una pagina è in memoria non la deve richiedere al server finale.
+I server proxy si trovano molto vicini ai client, per rendere anche più veloce la risposta.
+
+[connessione PEER TO PEER]
+E.g. chiamate  whutsup;
+La connessione può avvenire anche solo tra diversi client, avvolte c'è un server di mezzo ma non sempre è presente.
+Questo è possibile perchè internet è una rete che unisce tanti piccoli punti (noi client) che formano la rete.
+I punti sono i nostri pc, smartfone o server.
+
+[sito WEB]
+E' un insieme di file e cartelle,
+file contenenti codice di:
+- programmazione -> sequenza di algoritmi
+- formattazione -> da un effetto estetico al nostro sito web, e.g. -> HTML, CSS;
+STATICI -> HTML, CSS e un po di JavaScript -> e.g. vetrina di un negozio di parrucchieri;
+DINAMICI -> HTML, CSS, JavaScript, PHP, ecc., spesso collegati ad un database -> e.g YouTube;
+
+[DataBase]
+E' un archivio di dati.
+Il linguaggio più noto per interrogare il DB e l'SQL
+Per collegarsi ad un database abbiamo bisogno di 5 dati:
+- ip
+- porta
+- nome db
+- username
+- password
+___
+-> Installazione
+apt-get install mysql
+apt-get install mysql-server
+___
+-> Attivazione servizio
+service mysql start 
+___
+-> proseguimento dell'installazione
+mysql_secure_installation
+[DataBase relazionale]
+tabella <-> tabella relazionale <-> un'altra tabella;
+utenti <-> carrello <-> prodotti; -> relazione many to many
+
+[HTML]
+Linguaggio di formattazione con una struttura gerarchica.
+<head>
+________
+METADATA
+<head>
+
+<meta name="author" content="chi è"/>
+<meta name="description" content="descrizione del sito"/>
+<meta name="keywords" content="pollo, tutorial, pappa, ecc..."/>
+
+</head>
+
+<body>
+
+  <header></header>
+
+  <section>
+    <article></article>
+  </section>
+
+  <footer></footer>
+
+</body>
+
+
+[sessioni-cookie php]
+$_SESSION
+tutto quello che è salvato dentro le variabili di sessioni è criptato 
+quello che è salvato dentro ai cookie è leggibile a chiunque legge il file;
+

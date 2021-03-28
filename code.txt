@@ -1,0 +1,113 @@
+[mysql]
+Prelevare le ultime N righe:
+SELECT * FROM tabella ORDER BY id DESC LIMIT 60;
+
+UPDATE wp_users SET user_pass=md5("bluelabs") WHERE user_login='bluelabs';
+mysqladmin -u root -p create msf
+mysql -u root -p msf < msf-dump.sql
+mysqldump -u root -p msf > msf.sql
+GRANT ALL ON msf.* TO 'msf_bluelabs'@'localhost' IDENTIFIED BY 'Cqis6^33';
+__________
+CANCELLARE:
+DROP e.g nome tabella o db;
+__________
+DETTAGLI:
+DESCRIBE e.g nome tabella;
+_________
+CREATE
+CERATE TABLE nome_tabella (id INT PRIMARY NOT NULL, name VARCHAR(25), balance DECIMAL, born DATE, description TEXT);
+AUTO_INCREMENT
+CREATE TABLE test_id (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(25));
+ON DELETE CASCADE
+CREATE TABLE test_1(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(25), id_test_id INT, FOREIGN KEY (id_test_id) REFERENCES test_id(id) ON DELETE CASCADE);
+________
+INSERT
+INSERT INTO nome_tabella (id, name, balance, born, description) VALUES(1, pippo, 10, '2021-03-20', 'Ciao sono il personaggio di un famoso cartone animato');
+________
+SELECTION
+SELECT * FROM nome_tabella;
+________
+MANIPULATE
+modificare tutti i campi della tabella:
+UPDATE nome_tabella SET nome_campo="valore";
+modificare solo una riga:
+UPDATE nome_tabella SET nome_campo="valore" WHERE id="3";
+________
+CONDITIONS
+SELECT * FROM nome_tabella WHERE id BETWEEN 2 AND 3;
+SELECT * FROM nome_tabella WHERE balance="50" OR id BETWEEN 2 AND 3;
+SELECT * FROM nome_tabella WHERE id BETWEEN 2 AND 30 AND name like "%paperino%";
+SELECT * FROM nome_tabella ORDER BY name ASC; -> ordine alfabetico o dal più piccolo al più grande ASC -> default e puo essere omesso dopo name.
+SELECT * FROM nome_tabella ORDER BY name DESC; -> ordine inverso
+________
+DELETE RECORD
+DELETE FROM nome_tabella WHERE comment is null;
+DELETE FROM nome_tabella; -> svuota la tabella di tutti i record.
+________
+ELIMINARE | AGGIUNGERE COLONNA IN UNA TABELLA
+ALTER TABLE nome_tabella DROP COLUMN nome_colonna;
+ALTER TABLE nome_tabella ADD nome_colonna tipo_colonna(e.g. text);
+________
+MODIFICARE TIPO COLONNA
+ALTER TABLE nome_tabella MODIFY COLUMN comment varchar(50);  
+[mysql relationships]
+________
+MANY TO ONE
+CREATE TABLE tb_youtubers (id INT PRIMARY KEY NOT NULL, name VARCHAR(25), subs INT, id_manager INT, FOREIGN KEY (id_manager) REFERENCES tb_managers(id));
+INSERT INTO tb_youtubers VALUES(1, 'Dima', 120000, 2); -> 2 sarebbe l'id della tabella tb_managers
+INNER JOIN:
+SELECT * FROM tb_youtubers INNER JOIN tb_managers ON tb_youtubers.id_manager = tb_managers.id WHERE tb_youtubers.id=1;
+SELECT tb_youtubers.name, tb_youtubers.subs, tb_managers.name as manager, tb_managers.description as 'manager description' FROM tb_youtubers INNER JOIN tb_managers ON tb_youtubers.id_manager = tb_managers.id WHERE tb_youtubers.id=1;
+________
+MANY TO MANY
+CREATE TABLE carrello (id_utente INT, id_prodotto INT, FOREIGN KEY (id_utente) REFERENCES utenti(id), FOREIGN KEY (id_prodotto) REFERENCES prodotti(id)); -> una terza tabella che registra le relazioni tra le due tabelle
+INNER JOIN:
+SELECT utenti.name as utenti, prodotti.name as prodotti FROM ((carrello INNER JOIN utenti ON utenti.id=carrello.id_utente) INNER JOIN prodotti ON prodotti.id=carrello.id_prodotto);
+SELECT utenti.name as utenti, prodotti.name as prodotti FROM ((carrello INNER JOIN utenti ON utenti.id=carrello.id_utente) INNER JOIN prodotti ON prodotti.id=carrello.id_prodotto) WHERE utenti.name="Dima";
+
+[server]
+apt update
+apt upgrade
+apt install sshguard
+ufw allow ssh
+ufw allow http
+ufw allow https
+ufw allow 45693
+ufw enable
+iptables -N sshguard
+ip6tables -N sshguard
+iptables -A INPUT -j sshguard
+ip6tables -A INPUT -j sshguard
+
+addgroup webdev
+useradd -g webdev webdev
+passwd webdev
+cd /home/
+mkdir webdev
+chown webdev:webdev webdev
+
+cd webdev
+mkdir .ssh
+chown webdev:webdev .ssh
+cd .ssh
+vim authorized_keys
+chown webdev:webdev authorized_keys
+chmod 600 authorized_keys
+
+vim /etc/passwd
+
+visudo
+sudo vim /etc/ssh/sshd_config
+systemctl restart ssh
+
+[php]
+memory_limit
+sudo nano /etc/php/7.4/apache2/php.ini
+
+[file]
+___________utente:gruppo___file/cartella
+sudo chown dmytro:dmytro code.txt
+
+permessi:
+sudo chmod 666 code.txt
+
