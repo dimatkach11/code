@@ -15,7 +15,9 @@ DETTAGLI:
 DESCRIBE e.g nome tabella;
 _________
 CREATE
-CREATE USER 'msf_altura'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new_password1';
+CREATE USER
+  'msf_altura'@'loc' IDENTIFIED WITH mysql_native_password
+                                   BY 'new_password1'
 CERATE TABLE nome_tabella (id INT PRIMARY NOT NULL, name VARCHAR(25), balance DECIMAL, born DATE, description TEXT);
 AUTO_INCREMENT
 CREATE TABLE test_id (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(25));

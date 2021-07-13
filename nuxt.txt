@@ -1,0 +1,19 @@
+[NUXT JS]
+modulare - pieno di plugin
+performance - fa di tutto per mettere in risalto le prestazioni
+ssr - server side rendering
+mongodb - moongoose - nodejs
+[packet manager server]
+pm2
+[requisiti per un sito nuovo]
+1) utf-8
+2) 200 per tutte le pagine
+3) 301 per le pagine importanti che devono essere reindirizzate vecchio url (301) => nuovo url (200)
+4) Indexable: status code + robots.txt + meta noindex,nofollow
+5) !!! title, description, h1, devono essere unici per ogni pagina e non si dovrebbero ripetere. Devono esserci in ogni modello title, description, h1 =  (required, unique)
+6) file statici in pages -> URL è il nome del file, 
+   nei file dinamici _id.vue si inserisce un campo per url nel modello e.g = wiki 
+   <nuxt-link :to="`/wiki/${wiki.url`">{{wiki.h1}}</nuxt-link>
+
+
+
