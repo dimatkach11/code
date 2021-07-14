@@ -6,8 +6,7 @@ UPDATE wp_users SET user_pass=md5("bluelabs") WHERE user_login='bluelabs';
 mysqladmin -u root -p create msf
 mysql -u root -p msf < msf-dump.sql
 mysqldump -u root -p msf > msf.sql
-CREATE USER 'msf_grid'@'localhost' identified WITH  mysql_native_password BY 'Uqr!n834';
-GRANT ALL ON msf.* TO 'msf_bluelabs'@'localhost' IDENTIFIED BY 'V!qtb187';
+GRANT ALL ON msf.* TO 'msf_bluelabs'@'localhost' IDENTIFIED BY 'Cqis6^33';
 __________
 CANCELLARE:
 DROP e.g nome tabella o db;
@@ -16,7 +15,9 @@ DETTAGLI:
 DESCRIBE e.g nome tabella;
 _________
 CREATE
-CREATE USER 'msf_altura'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new_password1';
+CREATE USER
+  'msf_altura'@'loc' IDENTIFIED WITH mysql_native_password
+                                   BY 'new_password1'
 CERATE TABLE nome_tabella (id INT PRIMARY NOT NULL, name VARCHAR(25), balance DECIMAL, born DATE, description TEXT);
 AUTO_INCREMENT
 CREATE TABLE test_id (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(25));
@@ -113,4 +114,3 @@ sudo chown dmytro:dmytro code.txt
 permessi:
 sudo chmod 666 code.txt
 
-[expressjs]
