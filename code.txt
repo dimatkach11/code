@@ -6,7 +6,8 @@ UPDATE wp_users SET user_pass=md5("bluelabs") WHERE user_login='bluelabs';
 mysqladmin -u root -p create msf
 mysql -u root -p msf < msf-dump.sql
 mysqldump -u root -p msf > msf.sql
-GRANT ALL ON msf.* TO 'msf_bluelabs'@'localhost' IDENTIFIED BY 'Cqis6^33';
+CREATE USER 'msf_grid'@'localhost' identified WITH  mysql_native_password BY 'Uqr!n834';
+GRANT ALL ON msf.* TO 'msf_bluelabs'@'localhost' IDENTIFIED BY 'V!qtb187';
 __________
 CANCELLARE:
 DROP e.g nome tabella o db;
@@ -111,3 +112,4 @@ sudo chown dmytro:dmytro code.txt
 permessi:
 sudo chmod 666 code.txt
 
+[expressjs]
