@@ -1,0 +1,4 @@
+SELECT * FROM `donation`, donation_user where donation_user.ship_name="Paolo" AND donation_user.ship_surname="Lanzini" AND donation_user.code=donation.code
+ORDER BY `donation`.`id`  DESC
+
+
