@@ -1,2 +1,10 @@
 [Elenco comuni italiani - ISTAT]
 https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv
+sudo update-alternatives --remove-all java
+##Terminare un processo node con PID specifico
+#Prima vedo che cosa gira nella porta che mi sta rompendo il cazzo 
+sudo lsof -i :8000
+#Vedo il suo PID esempio 16629 e lo uccido cosi 
+kill -9 16629
+#link simbolico ad un eseguibile in user/local/bin
+sudo ln -s /usr/local/bin/soapui /home/dmytro/SmartBear/SoapUI-5.5.0/bin/SoapUI-5.5.0
